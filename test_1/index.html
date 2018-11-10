@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+  .penguin {
+    width: 170px;
+    
+  }
+  .text {
+    padding-left : 12px;
+    padding-right: 12px;
+  }
+  .pink {
+    background-color: pink;
+  }
+  .aqua {
+    background-color: aquamarine;
+  }
+  .lemon {
+    background-color: yellow;
+  }
+  .grape {
+    background-color: purple;
+  }
+    mark {
+    background-color: yellow;
+    color: black;
+}
+    .border {
+    border-color: lightblue;
+    border-width: 10px;
+    border-style: solid;
+    border-radius: 20px;
+    background-color: lightblue;
+    box-shadow: 7px 15px 10px black;
+    }
+    .border2 {
+    border-color: green;
+    border-width: 3px;
+    border-style: dotted;
+    border-radius: 0px;
+    }
+    body {
+      font-family: Helvetica;
+    }
+    .orange-text {
+      font-size: 15px;
+      font-weight: normal;
+    }
+    h1 {
+      color: orange;
+    }
+    .red-text {
+      color:red ;
+    }
+    .blue-text {
+      color:blue;
+      
+    }
+    .noindent {
+      margin-left: 12px;
+    }
+  </style>
+    <meta charset=utf-8 />
+    <title>JS Bin</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+ </head>
+<body>
+  
+  <p>
+    In this exercise, use CSS to make everything written below true. You may add as many classes to elements as you want.
+
+  
+  </p>
+
+  <h1>
+    This h1 should be orange
+    <br>
+    <span class= "orange-text"><strike>Make this line not bold, half the size, and with a line through it.</strike></span>
+    
+  </h1>
+
+  <h2>
+    Put everything in Helvetica.
+  </h2>
+  <section class="main border">
+
+    <div class="feature">
+      <i class="red-text">This line should be red and in italics.</i>
+    </div>
+
+    <div>
+      <a href="http://google.com" class="blue-text" style="text-decoration:none">Links shouldn't be underlined</a>
+    </div>
+  
+    <p>
+      Every section should have a green 3px dotted border, except this one, which should have a light blue background color, and a box  shadow of 10px with rounded corners.
+    </p>
+  
+  <p>
+    All sections should have 1 line of space between them. And they should all have 12px of padding on left and right.
+  </p>
+  </section>
+  
+  <br>
+  <section class="border2">
+
+    <blockquote>
+        Most <em><mark>emphasis</mark></em> should have a yellow background, but
+        not <em class="secondary">this one</em>.
+  </blockquote>
+    <blockquote class="noindent">
+        I definitely don't want this blockquote indented.
+    </blockquote>
+    
+    <p class="text">
+      This paragraph can stay as is.
+    </p>
+</section>
+<br>
+<section class="border2">
+  <h4 class="text">Changed the background of each of the following to a color described by the text</h4>
+    <ul>
+        <li class="pink">Pink</li>
+        <li class="aqua">Aquamarine</li>
+        <li class="lemon">Lemon</li>
+        <li class="grape">Grape</li>
+    </ul>
+</section>
+<br>
+<section class="border2">
+    <div class="text">Put the penguin at http://goo.gl/e2x4ZK in the background of this div. It should only appear once, not repeat. And the box should be tall enough to see the whole penguin.</div>
+
+<img src="http://goo.gl/e2x4ZK" alt="penguin" class="penguin">
+</section>
+<br>
+<section class="border2">
+    <div class="inline text">These five divs should be on one line without any extra spacing.</div>
+    <div class="inline"></div>
+    <div class="inline"></div>
+    <div class="inline"></div>
+    <div class="inline"></div>
+</section>
+<br>
+<section class="border2">
+    <ol type="a">
+        <li>Please make this list</li>
+        <li>use lowercase </li>
+        <li>letters instead of numbers</li>
+    </ol>
+</section>
+</body>
+</html>
