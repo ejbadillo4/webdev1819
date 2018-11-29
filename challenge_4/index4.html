@@ -20,6 +20,34 @@
     .card-group {
       width: 700px ;
     }
+    .border {
+      background-color: #F4DECB;
+    border-style: solid;
+    border-radius: 5px;
+    padding:10px;
+    }
+        .button {
+    background-color: #94618E;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    font-size: 16px;
+    cursor: pointer;
+    }
+    .button:hover {
+    background-color: #49274A;
+    }
+    .search {
+      border-style: solid;
+      border-color: #49274A;
+      color: #49274A;
+      padding: 5px 10px;
+      border-radius: 5px;
+    }
+    .search:hover {
+    background-color: #94618E;
+    }
   </style>
 </head>
 <body>
@@ -71,7 +99,7 @@
     <nav class="navbar navbar-light bg-light">
   <form class="form-inline">
     <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    <button class="search" type="submit">Search</button>
   </form>
 </nav>
     
@@ -83,7 +111,7 @@
 <br>
 
 
-
+<center>
 <div class="card-group">
   <div class="card">
     <img class="card-img-top" src="http://legacy.lanetech.org/img/staff/16186.jpg" alt="Card image cap">
@@ -109,6 +137,20 @@
     </div>
   </div>
 </div>
+</center>
 
+<br>
+<br>
+
+<form style="color: Black;" class="border"><p style="font-size:18px;"><center>If you wish to sign up for Model UN or want more information, leave your email below an we'll send you an informative email going into more depth </center></p>
+  Last Name, First Name:<br>
+  <input type="text" name="firstname">
+  <br><br>
+  Email Address:<br>
+  <input type="text" name="lastname">
+  <br>
+  <br>
+  <button class="button" type="button">Submit</button>
+</form>
 </body>
 </html>
