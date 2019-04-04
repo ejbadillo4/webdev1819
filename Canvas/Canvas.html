@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Simple Example</title>
+  <style>
+    canvas {
+      border: black 10px solid;
+      background-color: pink;
+    }
+  </style>
+</head>
+ 
+<body>
+    <canvas id="myCanvas" width="400" height="400">
+      <script>
+      var canvas = document.querySelector("#myCanvas");
+      var context = canvas.getContext("2d");
+
+
+//Bottom E
+context.moveTo(40, 300);
+context.lineTo(175, 300);
+ 
+
+context.closePath();
+ 
+
+context.lineWidth = 20;
+context.strokeStyle = "black";
+ 
+ //Side E
+
+context.moveTo(50, 92);
+context.lineTo(50, 300);
+ 
+
+context.closePath();
+ 
+
+context.lineWidth = 20;
+context.strokeStyle = "black";
+ 
+//Middle E
+
+context.moveTo(50, 200);
+context.lineTo(155, 200);
+ 
+
+context.closePath();
+ 
+
+context.lineWidth = 20;
+context.strokeStyle = "black";
+ 
+//Top E 
+
+
+context.moveTo(40, 100);
+context.lineTo(175, 100);
+ 
+
+context.closePath();
+ 
+
+context.lineWidth = 20;
+context.strokeStyle = "black";
+ 
+//Side B
+
+context.moveTo(225, 100);
+context.lineTo(225, 300);
+ 
+
+context.closePath();
+ 
+
+context.lineWidth = 20;
+context.strokeStyle = "black";
+ 
+//B1
+
+context.moveTo(225, 180);
+context.quadraticCurveTo(400, 135, 225, 100);
+
+context.closePath();
+ 
+context.lineWidth = 20;
+context.strokeStyle = "black";
+ 
+context.stroke();
+
+
+//B2
+
+context.moveTo(225, 180);
+context.quadraticCurveTo(400, 235, 225, 296);
+
+context.closePath();
+ 
+context.lineWidth = 20;
+context.strokeStyle = "black";
+ 
+context.stroke();
+
+</script>
+    </canvas>
+    
+</body>
+ 
+</html>
