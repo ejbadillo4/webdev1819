@@ -7,37 +7,23 @@
       border: black 10px solid;
       background-color: black;
     }
-    
-      
-    
   </style>
 </head>
-
 <body>
     <canvas id="myCanvas" width=400 height="400">
-      <script>
+  
+  <script>
       var canvas = document.querySelector("#myCanvas");
       var context = canvas.getContext("2d");
-      
       var c = document.getElementById("myCanvas");
       var ctx = c.getContext("2d");
-
-
-
       function drawSquare(){
         ctx.fillRect(0, 0, 1000, 1000);
         context.strokeStyle;
-        ctx.stroke();
-      }
-      
-      
-      
+        ctx.stroke();}
       function rotate() {
-	
   ctx.rotate(20 * Math.PI / 180);
-        
-        drawSquare();
-        
+    drawSquare();
     BottomE();
     SideE();
     TopE();
@@ -47,14 +33,7 @@
     B2();
     requestAnimationFrame(rotate);
     }
-    
     rotate();
-    
-
-
-
-    
-
 function BottomE(){
 context.moveTo(40, 300);
 context.lineTo(175, 300);
@@ -119,13 +98,6 @@ context.strokeStyle = "pink";
 context.stroke();
 }
 B2();
-
-
-
-
-
-
-
 </script>
     </canvas>
     
