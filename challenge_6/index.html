@@ -1,147 +1,106 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Steve Harvey Tribute</title>
-        <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
-  <link rel = "stylesheet" type ="text/css" href ="style6.css"/>
-  
-  <style>
-      .image {
-    width: 240px;
-            }
-      body {
-      background-color:#E8E8E8 ;
-      font-family: Times;
-      color: #333A56;
-    }
-    .jumbotron {
-      background-color: #F7F5E6 ;
-    }
-    .card {
-      background-color:#52658F ;
-      color: #E8E8E8;
-    }
-    .card-group {
-      width: 700px ;
-    }
-    .border {
-      background-color: #F7F5E6;
-      border-style: solid;
-      border-radius: 150px;
-      padding:10px;
-    }
-    .ad-left {
-      float: left;
-      margin-left: 50px;
-    }
-    .ad-right {
-      float: right;
-      margin-left: 10px;
-      margin-right: 50px;
-    }
-  </style>
-  
-    </head>
-    <body>
-
-
-
-<nav style="background-color: #333A56;" class="navbar navbar-expand-lg navbar-dark">
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="navbarNavDropdown">
-    <ul class="navbar-nav">
-      <li class="nav-item active">
-        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>++++++++++++++++++-
+        <title>Emergency Services App</title>
+        <meta charset=utf-8 />
+        <link rel="stylesheet" type="text/css" href="style.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
     
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Tribute</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Achievements</a>
-      </li>
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Life
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          <a class="dropdown-item" href="#">Career</a>
-          <a class="dropdown-item" href="#">Childhood</a>
-          <a class="dropdown-item" href="#">Education</a>
+    <style>
+      body{
+        background-color: blue;
+      }
+      
+    </style>
+    
+    
+    </head>
+        <script>
+         
+          var district=0;
+          var tempLat=0;
+          var tempLong=0;
+          var distances=[];
+          var z = document.getElementById("ex");
+          var finder = 0;
+          function measureDistances(x, y, a, b){
+            var dist=Math.sqrt(Math.pow(x-a, 2)+Math.pow(y-b, 2));
+            distances.push(dist);
+          }
+          function getInfo(){
+          for(var i=1; i<5; i++){
+          $.ajax({
+            url: "https://data.cityofchicago.org/resource/9rg7-mz9y.json?district="+i,
+            type: "GET",
+            //data: {
+            // "$limit" : 5000,
+           // }
+          }).done(function(data) {
+            alert("Latitude: " + data[0].latitude+" Longitude: "+data[0].longitude);
+           //console.log(data);
+           
+           getLocation2();
+           alert("tempLat "+tempLat);
+           measureDistances(tempLong, tempLat, data[0].longitude, data[0].latitude);
+           alert(distances[i]);
+          });
+          }
+          
+          function getLocation2() {
+          if (finder.geolocation) {
+            finder.geolocation.getCurrentPosition(showLocation);
+          } else { 
+            z.innerHTML = "Geolocation is not supported by this browser.";
+          }
+          }
+          }
+function showLocation(position) {
+  z.innerHTML = "Latitude: " + position.coords.latitude + 
+  "<br>Longitude: " + position.coords.longitude;
+  tempLat=position.coords.latitude;
+  tempLong=position.coords.longitude;
+}
+
+        </script>
+        
+    <body>
+        <div class="jumbotron jumbotron-fluid">
+          <div>
+            <p style="margin-bottom:3px">
+              <a href="https://data.cityofchicago.org/Public-Safety/Police-Stations-Map/gkur-vufi" target="_blank" style="font-size:12px;font-weight:bold;text-decoration:none;color:#333333;font-family:arial;">Police Stations - Map</a>
+            </p>
+              <iframe width="500px" title="Police Stations - Map" height="425px" src="https://data.cityofchicago.org/w/gkur-vufi/3q3f-6823?cur=g2zdjDXWOOD&from=root" frameborder="0"scrolling="no">
+                <a href="https://data.cityofchicago.org/Public-Safety/Police-Stations-Map/gkur-vufi" title="Police Stations - Map" target="_blank">Police Stations - Map</a>
+              </iframe>
+          </div>
         </div>
-      </li>
-    </ul>
-  </div>
-</nav>
+        <p id="ex"></p>
+        
+<button onclick="getInfo()">Try</button>
+<p>Get Your Coordinates</p>
 
+<button onclick="getLocation()">Try It</button>
 
+<p id="demo"></p>
 
+<script>
+  var x = document.getElementById("demo");
+var navigator = 0;
+function getLocation() {
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(showPosition);
+  } else { 
+    x.innerHTML = "Geolocation is not supported by this browser.";
+  }
+}
+//getLocation();
+function showPosition(position) {
+  x.innerHTML = "Latitude: " + position.coords.latitude + 
+  "<br>Longitude: " + position.coords.longitude;
+}
+</script>
 
-
-<center><div class="jumbotron">
-  <h1 class="display-4">Steve Harvey</h1>
-  <hr class="my-4">
-  <p style="margin-left: 50px; margin-right:50px;">Broderick Stephen Harvey is an American comedian, television host, producer, radio personality, actor and author. He hosts The Steve Harvey Morning Show, the Steve talk show, Family Feud, Celebrity Family Feud, Little Big Shots and its spinoff Little Big Shots: Forever Young, Steve Harvey's Funderdome, Showtime at the Apollo and since 2015, the Miss Universe pageant.
-Harvey is the author of Act Like a Lady, Think Like a Man, which was published in March 2009, and the book Straight Talk, No Chaser: How to Find and Keep a Man. He starred in The Steve Harvey Show, and was featured in The Original Kings of Comedy. He is a six-time Daytime Emmy Award winner, two-time Marconi Award winner, and a 14-time NAACP Image Award winner in various categories. </p>
-</div></center>
-
-
-
-<div class="entire-thing">
-<div class="ad-left">
-  
-<img class="image border" src="https://pixel.nymag.com/imgs/daily/vulture/2017/04/17/17-Steve-Harvey.w330.h330.jpg" alt="Steve Harvey">
-    <img class="image border" src="https://vignette.wikia.nocookie.net/millionaire/images/e/ec/Steve_Harvey.jpg/revision/latest/scale-to-width-down/350?cb=20180830045927" alt="Steve Harvey">
-
-
-</div>
-<div class="ad-right">
-<img class="image border" src="https://10xgrowthcon.com/wp-content/uploads/2018/11/SteveHarvey.png" alt="Steve Harvey">
-<img class="image border" src="https://pbs.twimg.com/profile_images/1043674181563342850/svxXZ5Iq_400x400.jpg" alt="Steve Harvey">
-</div>
-<div class="clear"></div>
-</div>
-
-
-
-
-
-
-
-<center>
-<div class="card-group">
-  <div class="card">
-    <img class="card-img-top" src="">
-    <div class="card-body">
-      <h5 class="card-title">Author</h5>
-      <p class="card-text">Steve Harvey has written many books that focus on the idea of life in general, and specifically topics that occur in life naturally like romance, politics, and wellness. </p>
-      </div>
-  </div>
-  <div class="card">
-    <img class="card-img-top" src="">
-    <div class="card-body">
-      <h5 class="card-title">Television Host</h5>
-      <p class="card-text">He has also had many Television appearances as the host of either a talk show or game show, most notably Family Feud.</p>
-    </div>
-  </div>
-  <div class="card">
-    <div class="card-body">
-      <h5 class="card-title">Actor</h5>
-      <p class="card-text">His acting carreer has also contributed to his success, as he as appeared in films such as The Original Kings of Comedy & Johnson Family Vacation.</p>
-    </div>
-  </div>
-</div>
-</center>
-<br>
-
-
-
-
-
-
-    </body>
 </html>
